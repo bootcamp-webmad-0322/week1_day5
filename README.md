@@ -95,8 +95,8 @@
 
  ## Main points: event object
 
-- El objeto `event` ([MDN](https://developer.mozilla.org/es/docs/Web/API/Event)) puede ser capturado en aquellas funciones que sean invocadas a raíz de un evento, pudiendo evitar, entre otras cosas, el envío de un formulario:
+- El objeto `event` ([MDN](https://developer.mozilla.org/es/docs/Web/API/Event)) puede ser capturado en aquellas funciones que sean invocadas a raíz de un evento, pudiendo detectar, entre otras cosas, el objeto por el que se ha sucedido la invocación de una función:
 
   ````javascript
-  obj.onsubmit = e => e.preventDefault()
+  obj.onclick = e => e.currentTarget
   ````
