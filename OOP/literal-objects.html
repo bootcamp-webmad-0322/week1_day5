@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        const person = {
+            name: 'German',
+            lastName: 'Alvarez',
+            celiac: false,
+            address: {
+                street: 'García Luna',
+                neighbourhood: 'Prospe',
+                postalCode: 28002
+            },
+            hobbies: ['sky', 'coding', 'beer', 'rave'],
+            age: 35,
+            height: 1.7,
+            weight: 80,
+            subscriptions: [
+                {
+                    name: 'Netflix',
+                    cost: 14.99
+                },
+                {
+                    name: 'Glovo Prime',
+                    cost: 9.99
+                }
+            ],
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            },
+            gainWeight(extraKilos) {
+                this.weight += extraKilos
+            },
+            subscribe(serviceName, serviceCost) {
+                this.subscriptions.push({ name: serviceName, cost: serviceCost })
+            },
+            listSubscriptions() {
+                this.subscriptions.forEach((eachSubscription) => {
+                    console.log(`Tengo ${eachSubscription.name} por ${eachSubscription.cost}€ al mes`)
+                })
+            },
+            grow(years = 1) {
+                this.age += years
+            },
+            getTotalSubscriptionsCost() {
+                let totalCost = 0
+                this.subscriptions.forEach((eachSubscription) => {
+                    totalCost += eachSubscription.cost
+                })
+                return totalCost
+            }
+        }
+
+
+        console.log(`Me llamo ${person.name} y tengo ${person.age} años`)
+
+
+        console.log(`Mis hobbies son ${person.hobbies}`)
+        person.learnNewHobby('snowboard')
+        console.log(`Mis hobbies son ${person.hobbies}`)
+
+
+        console.log(`Antes del Bootcamp pesaba ${person.weight}`)
+        person.gainWeight(2.6)
+        console.log(`Ahora peso ${person.weight}`)
+
+
+        console.log(`Mis suscripciones eran`, person.subscriptions)
+        person.subscribe('HBO', 6.99)
+        console.log(`Ahora son`, person.subscriptions)
+
+        person.listSubscriptions()
+
+        person.grow()
+
+        console.log(`Estoy pagando ${person.getTotalSubscriptionsCost()} en servicios, ni que fuese la Kplovitz`)
+
+    </script>
+</body>
+
+</html>
